@@ -1,7 +1,7 @@
 // Aguarda o carregamento do conteúdo do DOM antes de executar o script
 document.addEventListener('DOMContentLoaded', () => {
 
-    // --- SEU CÓDIGO DE TEMA EXISTENTE ---
+    // --- CÓDIGO DE TEMA EXISTENTE ---
     const themeToggle = document.querySelector('#checkbox');
     const body = document.body;
 
@@ -9,10 +9,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const applyTheme = (theme) => {
         if (theme === 'white') {
             body.classList.add('white-theme');
-            themeToggle.checked = true;
+            // Só atualiza o 'checked' se o elemento existir
+            if (themeToggle) themeToggle.checked = true;
         } else {
             body.classList.remove('white-theme');
-            themeToggle.checked = false;
+            // Só atualiza o 'checked' se o elemento existir
+            if (themeToggle) themeToggle.checked = false;
         }
     };
 
@@ -39,21 +41,20 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // Adiciona o Event Listener para a mudança de tema
+    // Adiciona o Event Listener para a mudança de tema (AGORA COM VERIFICAÇÃO)
     if (themeToggle) {
         themeToggle.addEventListener('change', switchTheme);
-    } else {
-        console.error("Elemento com ID 'checkbox' não foi encontrado.");
     }
 
     // Define o tema inicial assim que a página carrega
     initializeTheme();
 
-    // --- NOVO CÓDIGO DE TRADUÇÃO ---
+    // --- CÓDIGO DE TRADUÇÃO ATUALIZADO ---
 
-    // 1. Dicionário com as traduções
+    // 1. Dicionário com as traduções (NOVAS CHAVES ADICIONADAS)
     const translations = {
         'pt': {
+            // Index.html
             navAbout: 'Sobre Mim',
             navProjects: 'Projetos',
             navContact: 'Contato',
@@ -64,9 +65,25 @@ document.addEventListener('DOMContentLoaded', () => {
             projectsDescription: 'Descrição de projetos e área de estudo...',
             footerGithub: 'GitHub',
             footerLinkedin: 'LinkedIn',
-            footerInstagram: 'Instagram'
+            footerInstagram: 'Instagram',
+            // Comum
+            returnHome: 'Retornar à Página Inicial',
+            // Sobre_mim.html
+            aboutTitle: 'Minha Jornada em Tecnologia',
+            aboutIntro: 'Sou Layson, estudante de Ciência da Computação apaixonado por tecnologia. Desde o início da minha jornada, tenho me dedicado a entender como a lógica e a inovação se unem para construir soluções digitais eficientes. Meu foco atual está no desenvolvimento Front-End, explorando a criação de interfaces intuitivas e responsivas.',
+            aboutSkillsTitle: 'Habilidades e Interesses',
+            aboutSkillsLangs: 'Linguagens de Programação',
+            aboutSkillsTech: 'Tecnologias/Frameworks',
+            aboutSkillsAreas: 'Áreas de Interesse',
+            // Contato.html
+            contactTitle: 'Entre em Contato',
+            contactIntro: 'Estou sempre aberto a novas conexões e oportunidades. Sinta-se à vontade para me procurar através dos canais abaixo:',
+            contactMeans: 'Meios de Comunicação:',
+            contactEmail: 'E-mail',
+            contactPhone: 'Numero'
         },
         'en': {
+            // Index.html
             navAbout: 'About Me',
             navProjects: 'Projects',
             navContact: 'Contact',
@@ -77,7 +94,22 @@ document.addEventListener('DOMContentLoaded', () => {
             projectsDescription: 'Description of projects and area of study...',
             footerGithub: 'GitHub',
             footerLinkedin: 'LinkedIn',
-            footerInstagram: 'Instagram'
+            footerInstagram: 'Instagram',
+            // Comum
+            returnHome: 'Return to Homepage',
+            // Sobre_mim.html
+            aboutTitle: 'My Journey in Technology',
+            aboutIntro: 'I\'m Layson, a Computer Science student passionate about technology. Since the beginning of my journey, I\'ve been dedicated to understanding how logic and innovation come together to build efficient digital solutions. My current focus is on Front-End development, exploring the creation of intuitive and responsive interfaces.',
+            aboutSkillsTitle: 'Skills and Interests',
+            aboutSkillsLangs: 'Programming Languages',
+            aboutSkillsTech: 'Technologies/Frameworks',
+            aboutSkillsAreas: 'Areas of Interest',
+            // Contato.html
+            contactTitle: 'Get in Touch',
+            contactIntro: 'I am always open to new connections and opportunities. Feel free to reach out to me through the channels below:',
+            contactMeans: 'Means of Communication:',
+            contactEmail: 'Email',
+            contactPhone: 'Phone'
         }
     };
 
@@ -88,7 +120,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 3. Função centralizada para aplicar o idioma
     const applyLanguage = (lang) => {
-        // Itera sobre todos os elementos com 'data-key' e aplica a tradução
         translatableElements.forEach(element => {
             const key = element.getAttribute('data-key');
             if (translations[lang] && translations[lang][key]) {
@@ -96,13 +127,13 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
         
-        // Atualiza o atributo 'lang' da tag <html> (bom para acessibilidade)
         htmlElement.setAttribute('lang', lang.toUpperCase());
         
-        // Atualiza o texto do botão
-        langToggleButton.textContent = (lang === 'pt') ? 'EN' : 'PT-BR';
+        // Só atualiza o texto do botão se ele existir
+        if (langToggleButton) {
+            langToggleButton.textContent = (lang === 'pt') ? 'EN' : 'PT-BR';
+        }
         
-        // Salva a preferência no localStorage
         localStorage.setItem('language', lang);
     };
 
@@ -115,30 +146,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 5. Função para inicializar o idioma na primeira carga
     const initializeLanguage = () => {
-        // 1. Prioridade: Verifica se já existe um idioma salvo pelo usuário
         const savedLang = localStorage.getItem('language');
         if (savedLang) {
             applyLanguage(savedLang);
             return;
         }
 
-        // 2. Se não há idioma salvo, detecta a preferência do navegador
-        // navigator.language retorna "pt-BR", "en-US", etc.
         const browserLang = navigator.language || navigator.userLanguage;
         
         if (browserLang.startsWith('pt')) {
             applyLanguage('pt');
         } else {
-            // Define 'en' como padrão para qualquer outro idioma (inglês, espanhol, etc.)
             applyLanguage('en');
         }
     };
 
-    // 6. Adiciona o Event Listener para a mudança de idioma
+    // 6. Adiciona o Event Listener (AGORA COM VERIFICAÇÃO)
     if (langToggleButton) {
         langToggleButton.addEventListener('click', switchLanguage);
-    } else {
-        console.error("Elemento com ID 'lang-toggle' não foi encontrado.");
     }
 
     // 7. Define o idioma inicial assim que a página carrega
