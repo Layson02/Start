@@ -49,19 +49,17 @@ nav ul {
     gap: 25px; 
 }
 
-/* MODIFICADO: Adicionado display:flex para alinhar os dois botões */
 nav ul li:last-child {
     margin-left: auto;
     display: flex;
     align-items: center;
-    gap: 15px; /* Espaçamento entre o botão de idioma e o de tema */
+    gap: 15px; 
 }
 
 nav a:hover {
     color: var(--cor-destaque);
 }
 
-/* NOVO: Estilos para o botão de idioma */
 #lang-toggle {
     background-color: transparent;
     color: var(--cor-texto);
@@ -78,10 +76,9 @@ nav a:hover {
 #lang-toggle:hover {
     background-color: var(--cor-destaque);
     border-color: var(--cor-destaque);
-    color: white; /* Garante que o texto fique legível */
+    color: white; 
 }
 
-/* NOVO: Ajuste do botão de idioma para o tema claro */
 body.white-theme #lang-toggle {
     color: var(--cor-texto);
     border-color: var(--cor-texto);
