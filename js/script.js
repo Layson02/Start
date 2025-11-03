@@ -113,7 +113,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // 2. Elementos do DOM
+  // 2. Elementos do DOM
     const langToggleButton = document.getElementById('lang-toggle');
     const translatableElements = document.querySelectorAll('[data-key]');
     const htmlElement = document.documentElement; // Pega a tag <html>
@@ -131,12 +131,19 @@ document.addEventListener('DOMContentLoaded', () => {
         
         // Só atualiza o texto do botão se ele existir
         if (langToggleButton) {
-            langToggleButton.textContent = (lang === 'pt') ? 'EN' : 'PT-BR';
+            // ===============================================
+            // LINHA ALTERADA AQUI
+            // Antes: (lang === 'pt') ? 'EN' : 'PT-BR'
+            // Agora:
+            langToggleButton.textContent = (lang === 'pt') ? 'PT-BR' : 'EN';
+            // ===============================================
         }
         
         localStorage.setItem('language', lang);
     };
 
+    // ... (O restante do arquivo 'script.js' permanece exatamente igual) ...
+    
     // 4. Função que é chamada quando o usuário clica no botão de idioma
     const switchLanguage = () => {
         const currentLang = localStorage.getItem('language') || 'pt';
@@ -146,6 +153,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 5. Função para inicializar o idioma na primeira carga
     const initializeLanguage = () => {
+        // ... (código de inicialização permanece igual) ...
         const savedLang = localStorage.getItem('language');
         if (savedLang) {
             applyLanguage(savedLang);
