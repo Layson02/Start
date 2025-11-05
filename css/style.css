@@ -61,6 +61,16 @@ nav ul li:last-child {
     gap: 15px; 
 }
 
+nav a.active {
+    color: var(--cor-destaque);
+    font-weight: bold; /* Deixa mais óbvio */
+}
+
+/* Garante que o hover não mude a cor do link ativo */
+nav a.active:hover {
+    color: var(--cor-destaque);
+}
+
 #lang-toggle {
     background-color: transparent;
     color: var(--cor-texto);
@@ -154,6 +164,14 @@ body.white-theme a {
 
 body.white-theme a:hover {
     color: var(--cor-link-hover);
+}
+
+body.white-theme nav a.active {
+    color: var(--cor-destaque-escuro);
+}
+
+body.white-theme nav a.active:hover {
+    color: var(--cor-destaque-escuro);
 }
 
 body.white-theme #lang-toggle {
