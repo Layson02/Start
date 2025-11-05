@@ -108,7 +108,7 @@ footer img {
     width: 40px;
     height: 40px;
     transition: filter 0.3s;
-    filter: invert(1);
+    filter: invert(0);
 }
 
 footer p {
@@ -169,6 +169,10 @@ body.white-theme #lang-toggle:hover {
 
 body.white-theme footer img {
     filter: invert(0);
+}
+
+body.white-theme img[src*="github1.svg"] {
+    filter: invert(1);
 }
 
 body.white-theme .button {
