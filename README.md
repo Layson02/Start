@@ -2,7 +2,7 @@
 
 ![Status](https://img.shields.io/badge/status-em%20desenvolvimento-yellow)
 &nbsp;
-[![Site](https://img.shields.io/badge/Acesse%20o%20site-GitHub%20Pages-blue)](https://Layson02.github.io/Portfolio/) <br>
+[![Site](https://img.shields.io/badge/Acesse%20o%20site-GitHub%20Pages-blue)](https://layson02.github.io/Start/) <br>
 Repositório do meu portfólio pessoal, construído com HTML, CSS e JavaScript puro (Vanilla JS) para apresentar meus projetos.
 
 ### Funcionalidades:
@@ -15,7 +15,7 @@ Repositório do meu portfólio pessoal, construído com HTML, CSS e JavaScript p
 
 ![Status](https://img.shields.io/badge/status-work%20in%20progress-yellow)
 &nbsp;
-[![Site](https://img.shields.io/badge/View%20site-GitHub%20Pages-blue)](https://Layson02.github.io/Portfolio/) <br>
+[![Site](https://img.shields.io/badge/View%20site-GitHub%20Pages-blue)](https://layson02.github.io/Start/) <br>
 Repository for my personal portfolio, built with HTML, CSS, and Vanilla JavaScript to showcase my projects.
 
 ### Features:
