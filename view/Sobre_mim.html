@@ -8,63 +8,95 @@
 </head>
 <body>
     <div class="container">
-       <nav class="container">
-        <ul>
-            <li><a href="#" data-key="navAbout" class="active">Sobre Mim</a></li>
-            <li><a href="../index.html#projetos" data-key="navProjects">Projetos</a></li>
-            <li><a href="Contato.html" data-key="navContact">Contato</a></li>
-            
-            <li>
-                <button id="lang-toggle">EN</button> 
+       <nav>
+            <ul>
+                <li>
+                    <a href="#" class="active">
+                        <span class="pt-text">Sobre Mim</span>
+                        <span class="en-text">About Me</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="../index.html#projetos">
+                        <span class="pt-text">Projetos</span>
+                        <span class="en-text">Projects</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="Contato.html">
+                        <span class="pt-text">Contato</span>
+                        <span class="en-text">Contact</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <button id="lang-toggle">EN</button> 
 
-                <div class="theme-toggle-container">
-                    <input type="checkbox" id="checkbox" class="theme-checkbox" />
-                    <label for="checkbox" class="theme-toggle-label">
-                        <svg class="icon icon-moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                        </svg>
-                        <svg class="icon icon-sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="12" cy="12" r="5"></circle>
-                            <line x1="12" y1="1" x2="12" y2="3"></line>
-                            <line x1="12" y1="21" x2="12" y2="23"></line>
-                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                            <line x1="1" y1="12" x2="3" y2="12"></line>
-                            <line x1="21" y1="12" x2="23" y2="12"></line>
-                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                        </svg>
-                    </label>
-                </div>
-            </li>
-        </ul>
-    </nav>
-    <div class="container">
+                    <div class="theme-toggle-container">
+                        <input type="checkbox" id="checkbox" class="theme-checkbox" />
+                        <label for="checkbox" class="theme-toggle-label">
+                            <svg class="icon icon-moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                            <svg class="icon icon-sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                        </label>
+                    </div>
+                </li>
+            </ul>
+        </nav>
         
-        <main> 
         <main>
             <section>
-                <h1 data-key="aboutTitle">Minha Jornada em Tecnologia</h1>
-                <p data-key="aboutIntro"> Sou Layson, estudante de Ciência da Computação apaixonado por tecnologia. Desde 
-                    o início da minha jornada, tenho me dedicado a entender como a lógica e a inovação 
-                    se unem para construir soluções digitais eficientes. Meu foco atual está no 
-                    desenvolvimento Front-End, explorando a criação de interfaces intuitivas e responsivas.
+                <h1>
+                    <span class="pt-text">Minha Jornada em Tecnologia</span>
+                    <span class="en-text">My Journey in Technology</span>
+                </h1>
+                <p>
+                    <span class="pt-text">
+                        Sou Layson, estudante de Ciência da Computação apaixonado por tecnologia. Desde 
+                        o início da minha jornada, tenho me dedicado a entender como a lógica e a inovação 
+                        se unem para construir soluções digitais eficientes. Meu foco atual está no 
+                        desenvolvimento Front-End, explorando a criação de interfaces intuitivas e responsivas.
+                    </span>
+                    <span class="en-text">
+                        I'm Layson, a Computer Science student passionate about technology. Since the beginning of my journey, 
+                        I've been dedicated to understanding how logic and innovation come together to build efficient digital solutions. 
+                        My current focus is on Front-End development, exploring the creation of intuitive and responsive interfaces.
+                    </span>
                 </p>
             </section>
             
             <section>
-                <h2 data-key="aboutSkillsTitle">Habilidades e Interesses</h2>
+                <h2>
+                    <span class="pt-text">Habilidades e Interesses</span>
+                    <span class="en-text">Skills and Interests</span>
+                </h2>
                 <ul>
-                    <li><span data-key="aboutSkillsLangs">Linguagens de Programação</span>: (vou add depois)</li>
-                    <li><span data-key="aboutSkillsTech">Tecnologias/Frameworks</span>: (vou add depois)</li>
-                    <li><span data-key="aboutSkillsAreas">Áreas de Interesse</span>: (vou add depois)</li>
+                    <li>
+                        <strong>
+                            <span class="pt-text">Linguagens de Programação</span>
+                            <span class="en-text">Programming Languages</span>
+                        </strong>: (vou add depois)
+                    </li>
+                    <li>
+                        <strong>
+                            <span class="pt-text">Tecnologias/Frameworks</span>
+                            <span class="en-text">Technologies/Frameworks</span>
+                        </strong>: (vou add depois)
+                    </li>
+                    <li>
+                        <strong>
+                            <span class="pt-text">Áreas de Interesse</span>
+                            <span class="en-text">Areas of Interest</span>
+                        </strong>: (vou add depois)
+                    </li>
                 </ul>
             </section>
-            <main>
+            
             <section class="return-button"> 
-                <a href="../index.html" class="button" data-key="returnHome">Retornar à Página Inicial</a>
+                <a href="../index.html" class="button">
+                    <span class="pt-text">Retornar à Página Inicial</span>
+                    <span class="en-text">Return to Homepage</span>
+                </a>
             </section> 
-        </main>
         </main>
         
     </div>

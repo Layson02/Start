@@ -256,3 +256,16 @@ body.white-theme header img {
     opacity: 1;
     transform: scale(1);
 }
+
+/* Adicione no fim do seu CSS */
+.en-text {
+    display: none;
+}
+
+body.english-mode .pt-text {
+    display: none;
+}
+
+body.english-mode .en-text {
+    display: inline; /* ou block, dependendo do layout */
+}

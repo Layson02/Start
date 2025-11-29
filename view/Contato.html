@@ -7,63 +7,84 @@
     <link rel="stylesheet" href="../css/style.css"> 
 </head>
 <body>
-    <nav class="container">
-        <ul>
-            <li><a href="#" data-key="navContact" class="active">Contato</a></li>
-            <li><a href="../index.html#projetos" data-key="navProjects">Projetos</a></li>
-            <li><a href="Sobre_mim.html" data-key="navAbout">Sobre mim</a></li>
-            
-            <li>
-                <button id="lang-toggle">EN</button> 
-
-                <div class="theme-toggle-container">
-                    <input type="checkbox" id="checkbox" class="theme-checkbox" />
-                    <label for="checkbox" class="theme-toggle-label">
-                        <svg class="icon icon-moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                        </svg>
-                        <svg class="icon icon-sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="12" cy="12" r="5"></circle>
-                            <line x1="12" y1="1" x2="12" y2="3"></line>
-                            <line x1="12" y1="21" x2="12" y2="23"></line>
-                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                            <line x1="1" y1="12" x2="3" y2="12"></line>
-                            <line x1="21" y1="12" x2="23" y2="12"></line>
-                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                        </svg>
-                    </label>
-                </div>
-            </li>
-        </ul>
-    </nav>
     <div class="container">
+        <nav>
+            <ul>
+                <li>
+                    <a href="#" class="active">
+                        <span class="pt-text">Contato</span>
+                        <span class="en-text">Contact</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="../index.html#projetos">
+                        <span class="pt-text">Projetos</span>
+                        <span class="en-text">Projects</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="Sobre_mim.html">
+                        <span class="pt-text">Sobre mim</span>
+                        <span class="en-text">About Me</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <button id="lang-toggle">EN</button> 
+
+                    <div class="theme-toggle-container">
+                        <input type="checkbox" id="checkbox" class="theme-checkbox" />
+                        <label for="checkbox" class="theme-toggle-label">
+                            <svg class="icon icon-moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                            <svg class="icon icon-sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                        </label>
+                    </div>
+                </li>
+            </ul>
+        </nav>
         
         <main>
-    <div class="container">
-        <main>
             <section>
-                <h1 data-key="contactTitle">Entre em Contato</h1>
-                <p data-key="contactIntro">
-                    Estou sempre aberto a novas conexões e oportunidades. Sinta-se à vontade 
-                    para me procurar através dos canais abaixo:
+                <h1>
+                    <span class="pt-text">Entre em Contato</span>
+                    <span class="en-text">Get in Touch</span>
+                </h1>
+                <p>
+                    <span class="pt-text">
+                        Estou sempre aberto a novas conexões e oportunidades. Sinta-se à vontade 
+                        para me procurar através dos canais abaixo:
+                    </span>
+                    <span class="en-text">
+                        I am always open to new connections and opportunities. Feel free to reach out 
+                        to me through the channels below:
+                    </span>
                 </p>
                 
-                <h2 data-key="contactMeans">Meios de Comunicação:</h2>
+                <h2>
+                    <span class="pt-text">Meios de Comunicação:</span>
+                    <span class="en-text">Means of Communication:</span>
+                </h2>
                 <ul>
-                    <li><span data-key="contactEmail">E-mail</span>: <a href="email_de_trabalho">colocodepoi@agrn.com</a></li> 
-                    <li><span data-key="contactPhone">Numero</span>: (83) xxxxx-xxxx</li>
+                    <li>
+                        <span class="pt-text">E-mail</span>
+                        <span class="en-text">Email</span>: 
+                        <a href="mailto:colocodepoi@agrn.com">colocodepoi@agrn.com</a>
+                    </li> 
+                    <li>
+                        <span class="pt-text">Numero</span>
+                        <span class="en-text">Phone</span>: 
+                        (83) xxxxx-xxxx
+                    </li>
                 </ul>
-                
-                </section>
-                <main>
+            </section>
+
             <section class="return-button"> 
-                <a href="../index.html" class="button" data-key="returnHome">Retornar à Página Inicial</a>
+                <a href="../index.html" class="button">
+                    <span class="pt-text">Retornar à Página Inicial</span>
+                    <span class="en-text">Return to Homepage</span>
+                </a>
             </section> 
         </main>
-        </main>
-
     </div>
 
     <script src="../js/script.js"></script>

@@ -1,31 +1,32 @@
 // Aguarda o carregamento do conteúdo do DOM antes de executar o script
 document.addEventListener('DOMContentLoaded', () => {
 
-    // --- CÓDIGO DE TEMA EXISTENTE ---
-    const themeToggle = document.querySelector('#checkbox');
     const body = document.body;
 
-    // Função centralizada para aplicar o tema e atualizar o toggle
+    // ======================================================
+    // 1. LÓGICA DE TEMA (DARK/WHITE) - MANTIDA IGUAL
+    // ======================================================
+    const themeToggle = document.querySelector('#checkbox');
+
+    // Função para aplicar o tema visualmente
     const applyTheme = (theme) => {
         if (theme === 'white') {
             body.classList.add('white-theme');
-            // Só atualiza o 'checked' se o elemento existir
             if (themeToggle) themeToggle.checked = true;
         } else {
             body.classList.remove('white-theme');
-            // Só atualiza o 'checked' se o elemento existir
             if (themeToggle) themeToggle.checked = false;
         }
     };
 
-    // Função que é chamada quando o usuário clica no toggle
+    // Função chamada ao clicar no toggle
     const switchTheme = () => {
         const newTheme = themeToggle.checked ? 'white' : 'dark';
         localStorage.setItem('theme', newTheme);
         applyTheme(newTheme);
     };
 
-    // Função para inicializar o tema na primeira carga da página
+    // Inicializa o tema ao carregar a página
     const initializeTheme = () => {
         const savedTheme = localStorage.getItem('theme');
         if (savedTheme) {
@@ -34,147 +35,71 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-        if (prefersDark) {
-            applyTheme('dark'); 
-        } else {
-            applyTheme('white');
-        }
+        applyTheme(prefersDark ? 'dark' : 'white');
     };
 
-    // Adiciona o Event Listener para a mudança de tema (AGORA COM VERIFICAÇÃO)
+    // Event Listener do Tema
     if (themeToggle) {
         themeToggle.addEventListener('change', switchTheme);
     }
 
-    // Define o tema inicial assim que a página carrega
-    initializeTheme();
-
-    // --- CÓDIGO DE TRADUÇÃO ATUALIZADO ---
-
-    // 1. Dicionário com as traduções (NOVAS CHAVES ADICIONADAS)
-    const translations = {
-        'pt': {
-            // Index.html
-            navAbout: 'Sobre Mim',
-            navProjects: 'Projetos',
-            navContact: 'Contato',
-            jobTitle: 'Estudante de Ciência da Computação',
-            welcome: 'Boas-vindas!',
-            aboutMe: 'Olá! Sou Layson, um entusiasta de tecnologia e estudante de Ciência da Computação. Explore meu portfólio para conhecer mais sobre minha jornada e projetos.',
-            projectsTitle: 'Meus Projetos',
-            projectsDescription: 'Descrição de projetos e área de estudo...',
-            footerGithub: 'GitHub',
-            footerLinkedin: 'LinkedIn',
-            footerInstagram: 'Instagram',
-            // Comum
-            returnHome: 'Retornar à Página Inicial',
-            // Sobre_mim.html
-            aboutTitle: 'Minha Jornada em Tecnologia',
-            aboutIntro: 'Sou Layson, estudante de Ciência da Computação apaixonado por tecnologia. Desde o início da minha jornada, tenho me dedicado a entender como a lógica e a inovação se unem para construir soluções digitais eficientes. Meu foco atual está no desenvolvimento Front-End, explorando a criação de interfaces intuitivas e responsivas.',
-            aboutSkillsTitle: 'Habilidades e Interesses',
-            aboutSkillsLangs: 'Linguagens de Programação',
-            aboutSkillsTech: 'Tecnologias/Frameworks',
-            aboutSkillsAreas: 'Áreas de Interesse',
-            // Contato.html
-            contactTitle: 'Entre em Contato',
-            contactIntro: 'Estou sempre aberto a novas conexões e oportunidades. Sinta-se à vontade para me procurar através dos canais abaixo:',
-            contactMeans: 'Meios de Comunicação:',
-            contactEmail: 'E-mail',
-            contactPhone: 'Numero'
-        },
-        'en': {
-            // Index.html
-            navAbout: 'About Me',
-            navProjects: 'Projects',
-            navContact: 'Contact',
-            jobTitle: 'Computer Science Student',
-            welcome: 'Welcome!',
-            aboutMe: 'Hi! I\'m Layson, a technology enthusiast and Computer Science student. Explore my portfolio to learn more about my journey and projects.',
-            projectsTitle: 'My Projects',
-            projectsDescription: 'Description of projects and area of study...',
-            footerGithub: 'GitHub',
-            footerLinkedin: 'LinkedIn',
-            footerInstagram: 'Instagram',
-            // Comum
-            returnHome: 'Return to Homepage',
-            // Sobre_mim.html
-            aboutTitle: 'My Journey in Technology',
-            aboutIntro: 'I\'m Layson, a Computer Science student passionate about technology. Since the beginning of my journey, I\'ve been dedicated to understanding how logic and innovation come together to build efficient digital solutions. My current focus is on Front-End development, exploring the creation of intuitive and responsive interfaces.',
-            aboutSkillsTitle: 'Skills and Interests',
-            aboutSkillsLangs: 'Programming Languages',
-            aboutSkillsTech: 'Technologies/Frameworks',
-            aboutSkillsAreas: 'Areas of Interest',
-            // Contato.html
-            contactTitle: 'Get in Touch',
-            contactIntro: 'I am always open to new connections and opportunities. Feel free to reach out to me through the channels below:',
-            contactMeans: 'Means of Communication:',
-            contactEmail: 'Email',
-            contactPhone: 'Phone'
-        }
-    };
-
-  // 2. Elementos do DOM
+    // ======================================================
+    // 2. NOVA LÓGICA DE IDIOMA (VIA CSS CLASSES)
+    // ======================================================
     const langToggleButton = document.getElementById('lang-toggle');
-    const translatableElements = document.querySelectorAll('[data-key]');
-    const htmlElement = document.documentElement; // Pega a tag <html>
 
-    // 3. Função centralizada para aplicar o idioma
-    const applyLanguage = (lang) => {
-        translatableElements.forEach(element => {
-            const key = element.getAttribute('data-key');
-            if (translations[lang] && translations[lang][key]) {
-                element.textContent = translations[lang][key];
-            }
-        });
-        
-        htmlElement.setAttribute('lang', lang.toUpperCase());
-        
-        // Só atualiza o texto do botão se ele existir
+    // Atualiza apenas o texto do botão (PT-BR ou EN)
+    const updateLangButton = (isEnglish) => {
         if (langToggleButton) {
-            // ===============================================
-            // LINHA ALTERADA AQUI
-            // Antes: (lang === 'pt') ? 'EN' : 'PT-BR'
-            // Agora:
-            langToggleButton.textContent = (lang === 'pt') ? 'PT-BR' : 'EN';
-            // ===============================================
+            // Se o site está em Inglês, o botão mostra a opção de voltar para PT-BR
+            langToggleButton.textContent = isEnglish ? 'PT-BR' : 'EN';
         }
-        
-        localStorage.setItem('language', lang);
     };
 
-    // ... (O restante do arquivo 'script.js' permanece exatamente igual) ...
-    
-    // 4. Função que é chamada quando o usuário clica no botão de idioma
+    // Função chamada ao clicar no botão de idioma
     const switchLanguage = () => {
-        const currentLang = localStorage.getItem('language') || 'pt';
-        const newLang = (currentLang === 'pt') ? 'en' : 'pt';
-        applyLanguage(newLang);
+        // Adiciona ou remove a classe 'english-mode' no <body>
+        body.classList.toggle('english-mode');
+        
+        // Verifica se a classe está presente para saber o estado atual
+        const isEnglish = body.classList.contains('english-mode');
+        
+        // Salva a preferência e atualiza o botão
+        localStorage.setItem('language', isEnglish ? 'en' : 'pt');
+        updateLangButton(isEnglish);
+        
+        // Acessibilidade: atualiza o atributo lang na tag html
+        document.documentElement.setAttribute('lang', isEnglish ? 'en' : 'pt-BR');
     };
 
-    // 5. Função para inicializar o idioma na primeira carga
+    // Inicializa o idioma ao carregar a página
     const initializeLanguage = () => {
-        // ... (código de inicialização permanece igual) ...
         const savedLang = localStorage.getItem('language');
-        if (savedLang) {
-            applyLanguage(savedLang);
-            return;
-        }
-
         const browserLang = navigator.language || navigator.userLanguage;
         
-        if (browserLang.startsWith('pt')) {
-            applyLanguage('pt');
+        // Lógica: Inicia em inglês se estiver salvo 'en' OU (não tiver nada salvo E o navegador não for PT)
+        const shouldBeEnglish = savedLang === 'en' || (!savedLang && !browserLang.startsWith('pt'));
+
+        if (shouldBeEnglish) {
+            body.classList.add('english-mode');
+            updateLangButton(true);
+            document.documentElement.setAttribute('lang', 'en');
         } else {
-            applyLanguage('en');
+            body.classList.remove('english-mode');
+            updateLangButton(false);
+            document.documentElement.setAttribute('lang', 'pt-BR');
         }
     };
 
-    // 6. Adiciona o Event Listener (AGORA COM VERIFICAÇÃO)
+    // Event Listener do Idioma
     if (langToggleButton) {
         langToggleButton.addEventListener('click', switchLanguage);
     }
 
-    // 7. Define o idioma inicial assim que a página carrega
+    // ======================================================
+    // 3. INICIALIZAÇÃO GERAL
+    // ======================================================
+    initializeTheme();
     initializeLanguage();
 
 });
