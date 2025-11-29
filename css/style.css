@@ -256,8 +256,7 @@ body.white-theme header img {
     opacity: 1;
     transform: scale(1);
 }
-
-/* Adicione no fim do seu CSS */
+/* --- SEÇÃO DE LINGUAGEM --- */
 .en-text {
     display: none;
 }

@@ -3,9 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const body = document.body;
 
-    // ======================================================
-    // 1. LÓGICA DE TEMA (DARK/WHITE) - MANTIDA IGUAL
-    // ======================================================
+    // Area do tema
     const themeToggle = document.querySelector('#checkbox');
 
     // Função para aplicar o tema visualmente
@@ -96,9 +94,6 @@ document.addEventListener('DOMContentLoaded', () => {
         langToggleButton.addEventListener('click', switchLanguage);
     }
 
-    // ======================================================
-    // 3. INICIALIZAÇÃO GERAL
-    // ======================================================
     initializeTheme();
     initializeLanguage();
 
